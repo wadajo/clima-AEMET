@@ -1,0 +1,59 @@
+type Query {
+    prediccionHorariaWrapper(codMunicipio:String): PrediccionHorariaInternalResponseDto
+}
+
+type PrediccionHorariaInternalResponseDto {
+    origen: Origen
+    elaborado: String
+    localidad: String
+    provincia: String
+    prediccion: Prediccion
+    codMunicipio: String
+    version: String
+}
+
+type Origen {
+    productor: String
+    web: String
+    enlace: String
+    language: String
+    copyright: String
+    notaLegal: String
+}
+
+type Prediccion {
+    dias: [PrediccionDiaria]
+}
+
+type PrediccionDiaria {
+    estadoCielo: [PrediccionDiariaDesc]
+    precipitacion: [PrediccionDiariaSDesc]
+    probPrecipitacion: [PrediccionDiariaSDesc]
+    probTormenta: [PrediccionDiariaSDesc]
+    nieve: [PrediccionDiariaSDesc]
+    probNieve: [PrediccionDiariaSDesc]
+    temperatura: [PrediccionDiariaSDesc]
+    sensTermica: [PrediccionDiariaSDesc]
+    humedadRelativa: [PrediccionDiariaSDesc]
+    vientoAndRachaMax: [PrediccionDiariaViento]
+    fecha: String
+    orto: String
+    ocaso: String
+}
+
+type PrediccionDiariaDesc {
+    value: String
+    periodo: String
+    descripcion: String
+}
+
+type PrediccionDiariaSDesc {
+    value: String
+    periodo: String
+}
+
+type PrediccionDiariaViento {
+    direccion: [String]
+    velocidad: [String]
+    periodo: String
+}
