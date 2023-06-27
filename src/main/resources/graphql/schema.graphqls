@@ -1,5 +1,5 @@
 type Query {
-    prediccionHorariaWrapper(codMunicipio:String): PrediccionHorariaInternalResponseDto
+    prediccionHoraria(codMunicipio:String): PrediccionHorariaInternalResponseDto
 }
 
 type PrediccionHorariaInternalResponseDto {
@@ -22,7 +22,7 @@ type Origen {
 }
 
 type Prediccion {
-    dias: [PrediccionDiaria]
+    dia: [PrediccionDiaria]
 }
 
 type PrediccionDiaria {

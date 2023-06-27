@@ -1,4 +1,6 @@
 package com.wadajo.clima.domain.dto.response.internal;
 
-public record Prediccion() {
+import java.util.List;
+
+public record Prediccion(List<PrediccionDiaria> dia) {
 }
