@@ -8,4 +8,7 @@ public interface ClimaInternalClient {
 
     @GetExchange("/{location}")
     PrediccionHorariaInternalResponseDto getPrediccionHoraria(@PathVariable String location);
+
+    @GetExchange("/{location}")
+    String getPrediccionHorariaRaw(@PathVariable String location);
 }
