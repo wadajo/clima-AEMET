@@ -1,5 +1,7 @@
 package com.wadajo.clima.application.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.wadajo.clima.domain.dto.response.PrediccionHorariaInternalResponseDto;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -27,9 +29,19 @@ public class ClimaGraphqlController {
         if (wrapper.estado()==200){
             LOGGER.atInfo().log("Datos en: "+wrapper.datos());
 
-            var result=climaInternalClient.getPrediccionHorariaRaw(wrapper.datos().substring(38));
+            var prediccionHorariaRaw=climaInternalClient.getPrediccionHorariaRaw(wrapper.datos().substring(38));
+            LOGGER.atDebug().log("Resultado client RAW: "+prediccionHorariaRaw);
 
-            LOGGER.atInfo().log("Resultado client: "+result);
+            ObjectMapper mapper=new ObjectMapper();
+            try {
+                var prediccionHorariaTrim=prediccionHorariaRaw.substring(1,prediccionHorariaRaw.lastIndexOf("]")).trim();
+                var result=mapper.readValue(prediccionHorariaTrim, PrediccionHorariaInternalResponseDto.class);
+                LOGGER.atDebug().log("Resultado client parseada: "+result);
+
+                //TODO con mapstruct convertir en un objeto de salida más ameno para GraphQL
+            } catch (JsonProcessingException e) {
+                throw new RuntimeException(e);
+            }
         }
         return null;
     }

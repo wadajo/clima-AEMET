@@ -11,4 +11,5 @@ public interface ClimaInternalClient {
 
     @GetExchange("/{location}")
     String getPrediccionHorariaRaw(@PathVariable String location);
+
 }

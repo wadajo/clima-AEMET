@@ -5,8 +5,8 @@ import com.wadajo.clima.domain.dto.response.internal.Prediccion;
 
 public record PrediccionHorariaInternalResponseDto(Origen origen,
                                                    String elaborado,
-                                                   String localidad,
+                                                   String nombre,
                                                    String provincia,
                                                    Prediccion prediccion,
-                                                   String codMunicipio,
+                                                   String id,
                                                    String version) { }

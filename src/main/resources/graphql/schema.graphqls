@@ -5,10 +5,10 @@ type Query {
 type PrediccionHorariaInternalResponseDto {
     origen: Origen
     elaborado: String
-    localidad: String
+    nombre: String
     provincia: String
     prediccion: Prediccion
-    codMunicipio: String
+    id: String
     version: String
 }
 
@@ -55,5 +55,6 @@ type PrediccionDiariaSDesc {
 type PrediccionDiariaViento {
     direccion: [String]
     velocidad: [String]
+    value: String
     periodo: String
 }
