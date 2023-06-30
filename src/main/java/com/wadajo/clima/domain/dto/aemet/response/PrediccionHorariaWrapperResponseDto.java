@@ -1,4 +1,4 @@
-package com.wadajo.clima.domain.dto.response;
+package com.wadajo.clima.domain.dto.aemet.response;
 
 public record PrediccionHorariaWrapperResponseDto(String descripcion,
                                                   Integer estado,

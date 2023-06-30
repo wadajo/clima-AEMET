@@ -1,58 +1,46 @@
 type Query {
-    prediccionHoraria(codMunicipio:String): PrediccionHorariaInternalResponseDto
+    prediccionHoraria(codMunicipio:String): PrediccionHorariaResponseDto
 }
 
-type PrediccionHorariaInternalResponseDto {
-    origen: Origen
+type PrediccionHorariaResponseDto {
     elaborado: String
-    nombre: String
+    municipio: String
     provincia: String
-    prediccion: Prediccion
-    id: String
-    version: String
+    prediccion: PrediccionDto
 }
 
-type Origen {
-    productor: String
-    web: String
-    enlace: String
-    language: String
-    copyright: String
-    notaLegal: String
+type PrediccionDto {
+    dia: [PrediccionDiariaDto]
 }
 
-type Prediccion {
-    dia: [PrediccionDiaria]
-}
-
-type PrediccionDiaria {
-    estadoCielo: [PrediccionDiariaDesc]
-    precipitacion: [PrediccionDiariaSDesc]
-    probPrecipitacion: [PrediccionDiariaSDesc]
-    probTormenta: [PrediccionDiariaSDesc]
-    nieve: [PrediccionDiariaSDesc]
-    probNieve: [PrediccionDiariaSDesc]
-    temperatura: [PrediccionDiariaSDesc]
-    sensTermica: [PrediccionDiariaSDesc]
-    humedadRelativa: [PrediccionDiariaSDesc]
-    vientoAndRachaMax: [PrediccionDiariaViento]
+type PrediccionDiariaDto {
+    estadoCielo: [PrediccionDiariaDescDto]
+    precipitacion: [PrediccionDiariaSDescDto]
+    probPrecipitacion: [PrediccionDiariaSDescDto]
+    probTormenta: [PrediccionDiariaSDescDto]
+    nieve: [PrediccionDiariaSDescDto]
+    probNieve: [PrediccionDiariaSDescDto]
+    temperatura: [PrediccionDiariaSDescDto]
+    sensTermica: [PrediccionDiariaSDescDto]
+    humedadRelativa: [PrediccionDiariaSDescDto]
+    vientoAndRachaMax: [PrediccionDiariaVientoDto]
     fecha: String
-    orto: String
+    salidaSol: String
     ocaso: String
 }
 
-type PrediccionDiariaDesc {
+type PrediccionDiariaDescDto {
     value: String
     periodo: String
     descripcion: String
 }
 
-type PrediccionDiariaSDesc {
+type PrediccionDiariaSDescDto {
     value: String
     periodo: String
 }
 
-type PrediccionDiariaViento {
+type PrediccionDiariaVientoDto {
     direccion: [String]
     velocidad: [String]
     value: String

@@ -1,6 +1,6 @@
 package com.wadajo.clima.application.controller;
 
-import com.wadajo.clima.domain.dto.response.PrediccionHorariaInternalResponseDto;
+import com.wadajo.clima.domain.dto.aemet.response.PrediccionHorariaInternalResponseDto;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.service.annotation.GetExchange;
 
