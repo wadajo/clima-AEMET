@@ -19,7 +19,7 @@ public class ClimaClientConfig {
     @Bean
     WebClient webClientExternal() {
         return WebClient.builder()
-                .baseUrl("https://opendata.aemet.es/opendata/api/prediccion/especifica/municipio/horaria")
+                .baseUrl("https://opendata.aemet.es/opendata/api")
                 .defaultHeader("api_key",API_KEY)
                 .defaultHeader("accept","application/json")
                 .build();

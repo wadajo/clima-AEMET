@@ -15,7 +15,7 @@ import org.springframework.core.convert.converter.Converter;
 import java.util.List;
 
 @Mapper(componentModel = "spring", nullValueMappingStrategy = NullValueMappingStrategy.RETURN_DEFAULT)
-public interface PrediccionMapper extends Converter<PrediccionHorariaInternalResponseDto, PrediccionHorariaResponseDto> {
+public interface PrediccionHorariaMapper extends Converter<PrediccionHorariaInternalResponseDto, PrediccionHorariaResponseDto> {
 
     @Mapping(target = "municipio", source = "nombre")
     @BeanMapping(ignoreByDefault = true)

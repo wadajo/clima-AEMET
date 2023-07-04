@@ -1,5 +1,6 @@
 type Query {
     prediccionHoraria(codMunicipio:String): PrediccionHorariaResponseDto
+    prediccionDiaria(codMunicipio:String): PrediccionJornadaResponseDto
 }
 
 type PrediccionHorariaResponseDto {
@@ -45,4 +46,39 @@ type PrediccionDiariaVientoDto {
     velocidad: [String]
     value: String
     periodo: String
+}
+
+type PrediccionJornadaResponseDto {
+    elaborado: String
+    municipio: String
+    provincia: String
+    prediccion: PrediccionJornadaDto
+}
+
+type PrediccionJornadaDto {
+    dia: [PrediccionDiariaJornadaDto]
+}
+
+type PrediccionDiariaJornadaDto {
+    probPrecipitacion: [PrediccionDiariaSDescDto]
+    cotaNieveProv: [PrediccionDiariaSDescDto]
+    estadoCielo: [PrediccionDiariaDescDto]
+    viento: [PrediccionDiariaVientoDto]
+    rachaMax: [PrediccionDiariaSDescDto]
+    temperatura: [PrediccionDiariaJornadaValuesDto]
+    sensTermica: [PrediccionDiariaJornadaValuesDto]
+    humedadRelativa: [PrediccionDiariaJornadaValuesDto]
+    uvMax: Int
+    fecha: String
+}
+
+type PrediccionDiariaJornadaValuesDto {
+    maxima: Int
+    minima: Int
+    dato: [PrediccionDiariaJornadaValueInternalDto]
+}
+
+type PrediccionDiariaJornadaValueInternalDto {
+    value: Int
+    hora: Int
 }
