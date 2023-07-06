@@ -1,4 +1,7 @@
-package com.wadajo.clima.domain.dto.aemet.response.internal;
+package com.wadajo.clima.domain.dto.aemet.response.internal.diaria;
+
+import com.wadajo.clima.domain.dto.aemet.response.internal.shared.PrediccionDiariaDescDto;
+import com.wadajo.clima.domain.dto.aemet.response.internal.shared.PrediccionDiariaSDescDto;
 
 import java.util.List;
 
@@ -7,9 +10,9 @@ public record PrediccionJornadaValueInternal(List<PrediccionDiariaSDescDto> prob
                                              List<PrediccionDiariaDescDto> estadoCielo,
                                              List<PrediccionDiariaJornadaVientoDto> viento,
                                              List<PrediccionDiariaSDescDto> rachaMax,
-                                             List<PrediccionDiariaJornadaValuesDto> temperatura,
-                                             List<PrediccionDiariaJornadaValuesDto> sensTermica,
-                                             List<PrediccionDiariaJornadaValuesDto> humedadRelativa,
+                                             PrediccionDiariaJornadaValuesDto temperatura,
+                                             PrediccionDiariaJornadaValuesDto sensTermica,
+                                             PrediccionDiariaJornadaValuesDto humedadRelativa,
                                              Integer uvMax,
                                              String fecha
                                ) {

@@ -1,4 +1,4 @@
-package com.wadajo.clima.domain.dto.aemet.response.internal;
+package com.wadajo.clima.domain.dto.aemet.response.internal.horaria;
 
 import java.util.List;
 

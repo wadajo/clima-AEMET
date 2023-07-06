@@ -65,9 +65,9 @@ type PrediccionDiariaJornadaDto {
     estadoCielo: [PrediccionDiariaDescDto]
     viento: [PrediccionDiariaVientoDto]
     rachaMax: [PrediccionDiariaSDescDto]
-    temperatura: [PrediccionDiariaJornadaValuesDto]
-    sensTermica: [PrediccionDiariaJornadaValuesDto]
-    humedadRelativa: [PrediccionDiariaJornadaValuesDto]
+    temperatura: PrediccionDiariaJornadaValuesDto
+    sensTermica: PrediccionDiariaJornadaValuesDto
+    humedadRelativa: PrediccionDiariaJornadaValuesDto
     uvMax: Int
     fecha: String
 }

@@ -68,14 +68,14 @@ public class PrediccionService {
 
     public PrediccionJornadaResponseDto getPrediccionJornadaResponseDto (String codMunicipio) {
         var wrapper= climaExternalClient.getPrediccionDiariaWrapper(codMunicipio);
-        LOGGER.log(Level.INFO,wrapper);
+        LOGGER.log(Level.DEBUG,wrapper);
         if (wrapper.getStatusCode().is2xxSuccessful() &&
                 Objects.requireNonNull(wrapper.getBody()).estado()==200){
             var wrapperBody=wrapper.getBody();
-            LOGGER.log(Level.INFO,"Datos en: "+wrapperBody.datos());
+            LOGGER.log(Level.DEBUG,"Datos en: "+wrapperBody.datos());
 
             var prediccionRaw=climaInternalClient.getPrediccionRaw(wrapperBody.datos().substring(38));
-            LOGGER.log(Level.INFO,"Resultado client RAW: "+prediccionRaw);
+            LOGGER.log(Level.DEBUG,"Resultado client RAW: "+prediccionRaw);
 
             ObjectMapper rawStringObjectMapper=new ObjectMapper();
             try {
@@ -85,10 +85,10 @@ public class PrediccionService {
                         .setCoercion(CoercionInputShape.EmptyString, CoercionAction.TryConvert);
                 var resultInternal=rawStringObjectMapper
                         .readValue(prediccionJornadaTrim, PrediccionJornadaInternalResponseDto.class);
-                LOGGER.log(Level.INFO,"Resultado client parseada: "+resultInternal);
+                LOGGER.log(Level.DEBUG,"Resultado client parseada: "+resultInternal);
 
                 var result=cs.convert(resultInternal,PrediccionJornadaResponseDto.class);
-                LOGGER.log(Level.INFO,"Resultado client final mapeada: "+result);
+                LOGGER.log(Level.DEBUG,"Resultado client final mapeada: "+result);
                 return result;
 
             } catch (JsonProcessingException e) {

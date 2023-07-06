@@ -1,4 +1,7 @@
-package com.wadajo.clima.domain.dto.aemet.response.internal;
+package com.wadajo.clima.domain.dto.aemet.response.internal.horaria;
+
+import com.wadajo.clima.domain.dto.aemet.response.internal.shared.PrediccionDiariaDescDto;
+import com.wadajo.clima.domain.dto.aemet.response.internal.shared.PrediccionDiariaSDescDto;
 
 import java.util.List;
 

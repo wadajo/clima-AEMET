@@ -1,8 +1,8 @@
 package com.wadajo.clima.infrastructure.mapper;
 
 import com.wadajo.clima.domain.dto.aemet.response.PrediccionHorariaInternalResponseDto;
-import com.wadajo.clima.domain.dto.aemet.response.internal.PrediccionDiariaInternal;
-import com.wadajo.clima.domain.dto.aemet.response.internal.PrediccionInternal;
+import com.wadajo.clima.domain.dto.aemet.response.internal.horaria.PrediccionDiariaInternal;
+import com.wadajo.clima.domain.dto.aemet.response.internal.horaria.PrediccionInternal;
 import com.wadajo.clima.domain.dto.response.PrediccionDiariaDto;
 import com.wadajo.clima.domain.dto.response.PrediccionDto;
 import com.wadajo.clima.domain.dto.response.PrediccionHorariaResponseDto;
