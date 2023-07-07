@@ -1,0 +1,16 @@
+query{
+    prediccionHoraria(codMunicipio:"28005"){
+        elaborado
+        municipio
+        provincia
+        prediccion{
+            dia{
+                fecha
+                temperatura{
+                    periodo
+                    value
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,20 @@
+query{
+    prediccionDiaria(codMunicipio:"28005"){
+        elaborado
+        municipio
+        provincia
+        prediccion{
+            dia{
+                fecha
+                temperatura{
+                    maxima
+                    minima
+                    dato{
+                        hora
+                        value
+                    }
+                }
+            }
+        }
+    }
+}
