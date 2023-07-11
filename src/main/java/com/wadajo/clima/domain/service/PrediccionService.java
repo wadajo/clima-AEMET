@@ -16,6 +16,7 @@ import com.wadajo.clima.domain.dto.response.PrediccionJornadaResponseDto;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.core.convert.ConversionService;
 import org.springframework.stereotype.Service;
 
@@ -36,6 +37,7 @@ public class PrediccionService {
         this.cs = cs;
     }
 
+    @Cacheable("horaria")
     public PrediccionHorariaResponseDto getPrediccionHorariaResponseDto(String codMunicipio) {
         var wrapper= climaExternalClient.getPrediccionHorariaWrapper(codMunicipio);
         LOGGER.log(Level.DEBUG,wrapper);
@@ -66,6 +68,7 @@ public class PrediccionService {
         return new PrediccionHorariaResponseDto("N/A", "N/A", "N/A", new PrediccionDto((Collections.emptyList())));
     }
 
+    @Cacheable("diaria")
     public PrediccionJornadaResponseDto getPrediccionJornadaResponseDto (String codMunicipio) {
         var wrapper= climaExternalClient.getPrediccionDiariaWrapper(codMunicipio);
         LOGGER.log(Level.DEBUG,wrapper);
