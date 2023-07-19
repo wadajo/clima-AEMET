@@ -27,8 +27,8 @@ public class ClimaClientConfig {
     @Bean
     ClimaExternalClient climaExternalClient() {
         HttpServiceProxyFactory httpServiceProxyFactory =
-                HttpServiceProxyFactory.builder(
-                        WebClientAdapter.forClient(webClientExternal()))
+                HttpServiceProxyFactory.builderFor(
+                                WebClientAdapter.forClient(webClientExternal()))
                         .build();
         return httpServiceProxyFactory.createClient(ClimaExternalClient.class);
     }
@@ -42,7 +42,7 @@ public class ClimaClientConfig {
     @Bean
     ClimaInternalClient climaInternalClient() {
         HttpServiceProxyFactory httpServiceProxyFactory =
-                HttpServiceProxyFactory.builder(
+                HttpServiceProxyFactory.builderFor(
                                 WebClientAdapter.forClient(webClientInternal()))
                         .build();
         return httpServiceProxyFactory.createClient(ClimaInternalClient.class);

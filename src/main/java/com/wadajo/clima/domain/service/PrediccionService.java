@@ -5,7 +5,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.cfg.CoercionAction;
 import com.fasterxml.jackson.databind.cfg.CoercionInputShape;
 import com.wadajo.clima.application.controller.ClimaExternalClient;
-import com.wadajo.clima.application.controller.ClimaGraphqlController;
 import com.wadajo.clima.application.controller.ClimaInternalClient;
 import com.wadajo.clima.domain.dto.aemet.response.PrediccionHorariaInternalResponseDto;
 import com.wadajo.clima.domain.dto.aemet.response.PrediccionJornadaInternalResponseDto;
@@ -29,7 +28,7 @@ public class PrediccionService {
     private final ClimaExternalClient climaExternalClient;
     private final ClimaInternalClient climaInternalClient;
     private final ConversionService cs;
-    private static final Logger LOGGER = LogManager.getLogger(ClimaGraphqlController.class);
+    private static final Logger LOGGER = LogManager.getLogger(PrediccionService.class);
 
     public PrediccionService (ClimaExternalClient climaExternalClient, ClimaInternalClient climaInternalClient, ConversionService cs) {
         this.climaExternalClient = climaExternalClient;
